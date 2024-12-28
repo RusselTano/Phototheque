@@ -1,0 +1,8 @@
+extends ./partials/layout
+
+block content
+  h1 #{title}
+  form(action="/album/create" method="post")
+    input(type="text" name="title")
+    input#file(type="file", name="images" multiple)
+    input(type="submit" value="Ajouter")
