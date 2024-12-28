@@ -2,14 +2,18 @@
   "name": "node-starter",
   "private": true,
   "scripts": {
-    "start": "nodemon ./index.js",
+    "start": "nodemon index.js", 
+    "sync": "browser-sync start --proxy localhost:5500 --files 'views/**/*.pug, src/**/*.css'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "body-parser": "^1.20.3",
+    "connect-livereload": "^0.6.1",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "livereload": "^0.9.3",
     "mongoose": "^8.9.2",
-    "nodemon": "^3.1.9"
+    "nodemon": "^3.1.9",
+    "pug": "^3.0.3"
   }
 }
