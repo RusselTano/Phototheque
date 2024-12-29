@@ -1,0 +1,19 @@
+extends ./partials/layout
+
+block content
+  a(href="/album/list") << Retour
+  h1 #{title}
+  form(action=`/album/${album._id}` method="post" enctype="multipart/form-data")
+    input(type="text" name="title")
+    input#file(type="file" name="image" enctype="multipart/form-data")
+    input(type="submit" value="Ajouter")
+  if errorMessage
+    div.alert.alert-danger
+      | #{errorMessage}
+
+  ul.images
+   each image, index in album.images
+    li.image
+      img(src=`/uploads/${album._id}/${image}`)
+      p #{image}
+      a.btn.btn-danger(href=`/album/${album._id}/delete/${index}`) Supprimer

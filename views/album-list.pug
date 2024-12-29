@@ -1,4 +1,15 @@
 extends ./partials/layout
 
 block content
-  h1 Liste Album
+  h1 #{title}
+  table.table
+    thead
+      tr
+        th Title
+    tbody
+      each album in albums
+        tr
+          td #{album.title}
+          td
+            a.btn.btn-primary(href=`/album/${album._id}`) View
+            a.btn.btn-danger(href=`/album/${album._id}/delete`) Delete

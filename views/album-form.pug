@@ -2,7 +2,9 @@ extends ./partials/layout
 
 block content
   h1 #{title}
-  form(action="/album/create" method="post")
+  form(action="/album/create" method="post" enctype="multipart/form-data")
     input(type="text" name="title")
-    input#file(type="file", name="images" multiple)
-    input(type="submit" value="Ajouter")
+    input(type="submit" value="Créer")
+  if errorMessage
+    div.alert.alert-danger
+      | #{errorMessage}
